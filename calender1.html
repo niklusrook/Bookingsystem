@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bookingsystem</title>
+    <link rel="stylesheet" href="service.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="100">
+    <!-- Google Font Link for Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="main2.js" defer></script>
+    <link rel="icon" href="icon.png">
+    <style>
+      kbd{
+        background-color: #eee;
+        border-radius: 3px;
+        border: 1px solid #b4b4b4;
+        box-shadow: 0 1px 1px rgba(0,0,0,.2);
+        color: #333;
+        display: inline-block;
+        font-size: .85em;
+        font-weight: 700;
+        line-height: 1;
+        padding: 2px 4px;
+        white-space: nowrap;
+      }
+    </style>
+    <!--iframe = embed contentfrom another source into an html-->
+    </head>
+  <body>
+    <!--first container-->
+    <!--section container-->
+    <div class="container1">
+        <div class="service wrapper">
+            <header class="timetable__header">
+              <h1 class="selected-date">Service</h1>
+              <div class="backicons">
+                <span id="prev_button" class="material-symbols-rounded prev_button">chevron_left</span>
+                <span id="next" class="material-symbols-rounded">chevron_right</span>
+              </div>
+            </header>
+           
+            <div class="timetable active">
+              <div class="container__timetable">
+                <div class="container__timetable-text">
+                  <h2>Kort Hår Klipp</h2>
+                  <p>Kort hår klipp passer for deg som har mye hår :)</p>
+                </div>
+                
+              </div>
+              <div class="container__timetable">
+                <div class="container__timetable-text">
+                  <h2>Kort Hår Klipp</h2>
+                  <p>Kort hår klipp passer for deg som har mye hår :)</p>
+                </div>
+                
+                
+            </div>
+            
+            
+                
+              </div>
+              <button class="timetable__button-continue disabled">Fortsett </button>
+          </div>
+    </div>
+    <script>
+      const buttons = document.querySelectorAll(".timetable button");
+      let hasClickedTimetable = false; // New variable to track if any timetable button has been clicked
+  
+      // Function to add the class "active" to the clicked button and log the time
+      function addButtonActiveClass(event) {
+          const button = event.target;
+  
+          // Remove "active" class from all buttons
+          buttons.forEach((btn) => {
+              btn.classList.remove("active");
+          });
+  
+          // Add "active" class to the clicked button
+          button.classList.add("active");
+  
+          // Get the time from the button's text content (e.g., "11:00")
+          const time = button.textContent.trim();
+  
+          // Log the time to the console
+          console.log("Clicked time:", time);
+  
+          hasClickedTimetable = true; // Set the variable to true when a timetable button is clicked
+  
+          updateFortsettButton(); // Update the "Fortsett" button status
+      }
+  
+      // Add a click event listener to each button
+      buttons.forEach((button) => {
+          button.addEventListener("click", addButtonActiveClass);
+      });
+  
+      // Function to handle the click event for the "Fortsett" button
+      function continueButtonClick() {
+          // Your code for handling the "Fortsett" button click, if needed
+      }
+  
+      // Add a click event listener to the "Fortsett" button
+      const continueButton = document.querySelector(".timetable__button-continue");
+      continueButton.addEventListener("click", continueButtonClick);
+  
+      // Function to enable or disable the "Fortsett" button based on the hasClickedTimetable variable
+      function updateFortsettButton() {
+          if (hasClickedTimetable) {
+              continueButton.classList.remove("disabled");
+          } else {
+              continueButton.classList.add("disabled");
+          }
+      }
+      function updateButtons() {
+    const currentTime = new Date();
+    const currentHour = currentTime.getHours();
+    
+    // Loop through each button to check its time and disable if needed
+    buttons.forEach((button) => {
+      const buttonTime = button.textContent.trim();
+      const buttonHour = parseInt(buttonTime.split(":")[0], 10);
+      
+      if (currentHour >= buttonHour) {
+        // Check if the "Dette tidspunktet er ikke ledig" text already exists
+        if (!button.querySelector("p")) {
+          // If the text does not exist, add it to the button
+          const pTag = document.createElement("p");
+          pTag.textContent = "Dette tidspunktet er ikke ledig";
+          button.appendChild(pTag);
+        }
+        button.classList.add("inactive");
+      } else {
+        // If the button is active, remove the "Dette tidspunktet er ikke ledig" text if it exists
+        const pTag = button.querySelector("p");
+        if (pTag) {
+          pTag.remove();
+        }
+        button.classList.remove("inactive");
+        // Reset the button's content to just the time if it was previously inactive
+        button.textContent = buttonTime;
+      }
+    });
+  }
+  updateButtons();
+
+// Call the updateButtons function every minute to keep the buttons updated
+setInterval(updateButtons, 60000);
+      // Call the function initially to set the initial state of the "Fortsett" button
+      updateFortsettButton();
+  </script>
+  <script>
+    const containers = document.querySelectorAll(".container__timetable");
+  
+    // Function to handle the click event for the .container__timetable
+    function containerClickHandler(event) {
+      // Remove "clicked" class from all containers
+      containers.forEach((container) => {
+        container.classList.remove("clicked");
+      });
+  
+      // Add "clicked" class to the clicked container
+      event.currentTarget.classList.add("clicked");
+  
+      // Enable the "Fortsett" button by removing the "disabled" class
+      continueButton.classList.remove("disabled");
+    }
+  
+    // Add a click event listener to each container
+    containers.forEach((container) => {
+      container.addEventListener("click", containerClickHandler);
+    });
+  
+    // Your existing JavaScript code for the "Fortsett" button and timetable buttons...
+  
+  </script>
+  
+      
+      
+      
+  </body>
+</html>

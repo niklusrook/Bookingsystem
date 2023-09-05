@@ -1,0 +1,277 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fff;
+}
+a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border-radius: 50%;
+    padding: 5px;
+    font-size: 100px;
+    margin-left: 20px;
+}
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 45px 45px 40px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+.calendar{
+  padding: 20px;
+  display: block;
+  box-shadow: 15px 15px 15px 15px solid #000;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar .days{
+  margin-bottom: 20px;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+}
+.days li.active{
+  color: #fff;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #000;
+}
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+}
+
+
+.backicons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  color: #878787;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.backicons span:last-child{
+  margin-right: -10px;
+}
+ .backicons span:hover{
+  background: #f2f2f2;
+}
+
+
+
+.container1{
+    display: block;
+}
+
+.container1.hide{
+    display: none;
+}
+.container2{
+  display: block;
+}
+
+.container2 .wrapper{
+  overflow: hidden;
+}
+
+.container2.hide{
+  display: none;
+}
+
+.timetable {
+    text-align: center;
+    
+  }
+  
+  .timetable.active {
+    display: block;
+    overflow-y: scroll;
+    height: 55vh;
+    padding: 0 20px ;
+    border-bottom: 1px solid #000;
+  }
+  
+  .timetable__header{
+    box-shadow: 0px 10px 25px #FFF;
+    border-bottom: 2px solid rgba(64, 66, 92, 0.133);
+  }
+
+  .timetable ul {
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+
+  }
+  .timetable button{
+    display: list-item;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    outline: none;
+    border: 1px solid #000;
+    height: 48px;
+    background: #fff;
+    border-radius: 6px;
+    
+  }
+  .timetable__service{
+    border: 1px solid #000;
+    width: "100%";
+  }
+  .timetable__service-img img{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .timetable .inactive{
+    background: #878787;
+    border: none;
+    color: #fff;
+    opacity: 0.5;
+    pointer-events: disabled;
+    pointer-events: none;
+  }
+  .timetable button.active{
+    background: #000;
+    color: #fff;
+  }
+
+  .timetable button:hover{
+    background: #000;
+    color: #fff;
+    animation: ease-in 1s;
+  }
+  .timetable__button-continue{
+    width: 100%;
+    outline: none;
+    border: 1px solid #000;
+    height: 48px;
+    background: #000000;
+    color: #fff;
+    box-shadow: 0px -10px 25px #FFF;
+  }
+  .timetable__button-continue:hover{
+    color: #fff;
+  }
+
+  .timetable button.active:hover{
+    background: #000;
+    color: #fff;
+    animation: ease-in 1s;
+  }
+  .disabled{
+    opacity: 0.5;
+  }
+  
+
+  .timetable__service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container__timetable{
+    border: 2px solid rgba(64, 66, 92, 0.133);
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    align-items: center;
+    
+}
+.container__timetable .material-symbols-rounded{
+    font-size: 32px;
+}
+.container__timetable-text{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.container__timetable-text p{
+    text-align: left;
+}
+.container__timetable:hover{
+    border: 2px solid #000;
+}
+.container__timetable.clicked {
+    border: 2px solid #000; /* Change the border color to white when clicked */
+  }

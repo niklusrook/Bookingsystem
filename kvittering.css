@@ -1,0 +1,42 @@
+  .kvittering__service {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .container__kvittering {
+    border: 2px solid rgba(64, 66, 92, 0.133);
+    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+    align-items: center;
+  }
+
+  .container__kvittering .material-symbols-rounded {
+    font-size: 32px;
+  }
+
+  .container__kvittering-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+  }
+
+  .container__kvittering-text p {
+    text-align: left;
+  }
+  .container__timetable-text h2{
+    text-align: left;
+  }
+
+ /* Style for the qr-code class */
+.qr-code {
+    height: 150px;
+    width: 150px;
+    display: block;
+    margin-left: auto; /* This will move the image to the right by pushing it to the right margin */
+    margin-right: 0;   /* Remove any margin on the right side */
+  }
+  
